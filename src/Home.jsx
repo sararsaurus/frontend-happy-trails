@@ -1,7 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { TrailsIndex } from "./TrailsIndex";
-import { TrailsNew } from "./TrailsNew";
+// import { TrailsNew } from "./TrailsNew";
+import { Signup } from "./Signup";
+import { Login } from "./Login";
+import { LogoutLink } from "./LogoutLink";
 
 export function Home() {
   const [trails, setTrails] = useState([]);
@@ -24,7 +27,10 @@ export function Home() {
   useEffect(handleIndexTrails, []);
   return (
     <div>
-      <TrailsNew onCreateTrail={handleCreateTrail} />
+      <Signup />
+      <Login />
+      <LogoutLink />
+      {/* <TrailsNew onCreateTrail={handleCreateTrail} /> */}
       <TrailsIndex trails={trails} />
     </div>
   );
