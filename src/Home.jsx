@@ -5,6 +5,7 @@ import { TrailsIndex } from "./TrailsIndex";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
+import { Modal } from "./Modal";
 
 export function Home() {
   const [trails, setTrails] = useState([]);
@@ -31,6 +32,9 @@ export function Home() {
       <Login />
       <LogoutLink />
       {/* <TrailsNew onCreateTrail={handleCreateTrail} /> */}
+      <Modal show={true}>
+        <h1>Test</h1>
+      </Modal>
       <TrailsIndex trails={trails} />
     </div>
   );
