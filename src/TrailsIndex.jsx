@@ -9,6 +9,19 @@ export function TrailsIndex(props) {
           <p>Description: {trail.description}</p>
           <p>Length: {trail.length}</p>
           <p>Difficulty: {trail.difficulty}</p>
+          <h3>
+            Conditions:{" "}
+            {trail.conditions.map((condition) => (
+              <div key={condition.id}>
+                <p>Trail condition: {condition.trail_condition}</p>
+                <p>Temp: {condition.temp}</p>
+                <p>Forecast: {condition.forecast}</p>
+                <p>Id: {condition.trail_id}</p>
+                <p>Sunrise: {condition.sunrise_time}</p>
+                <p>Sunset: {condition.sunset_time}</p>
+              </div>
+            ))}
+          </h3>
         </div>
       ))}
     </div>
