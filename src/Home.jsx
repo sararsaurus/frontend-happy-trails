@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { TrailsIndex } from "./TrailsIndex";
+import { TrailsShow } from "./TrailsShow";
 // import { TrailsNew } from "./TrailsNew";
 import { Modal } from "./Modal";
-import { TrailsShow } from "./TrailsShow";
+
 import { HikeSchedulesIndex } from "./HikeSchedulesIndex";
+import { HikesShow } from "./HikeSchedulesShow";
 
 export function Home() {
   const [trails, setTrails] = useState([]);
@@ -12,6 +14,8 @@ export function Home() {
   const [currentTrail, setCurrentTrail] = useState({});
 
   const [hikes, setHikes] = useState([]);
+  const [isHikesShowVisible, setIsHikesShowVisible] = useState(false);
+  const [currentHike, setCurrentHike] = useState({});
 
   const handleIndexHikes = () => {
     console.log("handleIndexHikes");
@@ -21,18 +25,6 @@ export function Home() {
     });
   };
   useEffect(handleIndexHikes, []);
-
-  // const hikes = [
-  //   {
-  //     id: 1,
-  //     trail_id: "test",
-  //     trail_name: "testy",
-  //     user_id: 1,
-  //     date: 20230601,
-  //     conditions: "frosty",
-  //     fast_facts: "cool",
-  //   },
-  // ];
 
   const handleIndexTrails = () => {
     axios.get("http://localhost:3000/trails.json").then((response) => {
@@ -58,13 +50,25 @@ export function Home() {
   const handleClose = () => {
     console.log("handleClose");
     setIsTrailsShowVisible(false);
+    setIsHikesShowVisible(false);
+  };
+
+  const handleShowHike = (hike) => {
+    console.log("handleShowHike", hike);
+    setIsHikesShowVisible(true);
+    setCurrentHike(hike);
   };
 
   useEffect(handleIndexTrails, []);
   return (
     <div>
       {/* <TrailsNew onCreateTrail={handleCreateTrail} /> */}
-      <HikeSchedulesIndex hikes={hikes} />
+
+      <Modal show={isHikesShowVisible} onClose={handleClose}>
+        <HikesShow hike={currentHike} />
+      </Modal>
+      <HikeSchedulesIndex hikes={hikes} onShowHike={handleShowHike} />
+
       <Modal show={isTrailsShowVisible} onClose={handleClose}>
         <TrailsShow trail={currentTrail} />
       </Modal>

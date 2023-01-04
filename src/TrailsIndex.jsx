@@ -1,7 +1,7 @@
 export function TrailsIndex(props) {
   return (
     <div id="trails-index">
-      <h1 className="text-center">SomeTrails</h1>
+      <h1 className="text-center">More Trails</h1>
       <br />
       <div className="row">
         {props.trails.map((trail) => (
