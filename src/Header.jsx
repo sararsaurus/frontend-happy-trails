@@ -1,18 +1,9 @@
-// export function Header() {
-//   return (
-//     <header>
-//       <nav>
-//         <a href="#">Home</a> | <a href="#">Link</a>
-//       </nav>
-//     </header>
-//   );
-// }
-
+import { useState } from "react";
 import { Modal } from "./Modal";
 import { Signup } from "./Signup";
 import { LogoutLink } from "./LogoutLink";
 import { Login } from "./Login";
-import { useState } from "react";
+// import { HikeSchedulesIndex } from "./HikeSchedulesIndex";
 
 export function Header() {
   const [isSignupVisible, setIsSignupVisible] = useState(false);
@@ -66,6 +57,10 @@ export function Header() {
               <li className="nav-item">
                 <LogoutLink />
               </li>
+              |
+              {/* <li className="nav-item">
+                <HikeSchedulesIndex hikes={hikes} />
+              </li> */}
             </ul>
             {/* <form className="d-flex" role="search">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
