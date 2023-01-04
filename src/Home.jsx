@@ -42,9 +42,6 @@ export function Home() {
   useEffect(handleIndexTrails, []);
   return (
     <div>
-      <Signup />
-      <Login />
-      <LogoutLink />
       {/* <TrailsNew onCreateTrail={handleCreateTrail} /> */}
       <Modal show={isTrailsShowVisible} onClose={handleClose}>
         <TrailsShow trail={currentTrail} />
