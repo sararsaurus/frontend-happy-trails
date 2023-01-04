@@ -3,7 +3,6 @@ import { Modal } from "./Modal";
 import { Signup } from "./Signup";
 import { LogoutLink } from "./LogoutLink";
 import { Login } from "./Login";
-// import { HikeSchedulesIndex } from "./HikeSchedulesIndex";
 
 export function Header() {
   const [isSignupVisible, setIsSignupVisible] = useState(false);
@@ -42,21 +41,25 @@ export function Header() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a onClick={handleSignupShow} href="#">
-                  Signup
-                </a>
-              </li>
-              |
-              <li className="nav-item">
-                <a onClick={handleLoginShow} href="#">
-                  Login
-                </a>
-              </li>
-              |
-              <li className="nav-item">
-                <LogoutLink />
-              </li>
+              {localStorage.jwt === undefined ? (
+                <>
+                  <li className="nav-item">
+                    <a onClick={handleSignupShow} href="#">
+                      Signup
+                    </a>
+                  </li>
+                  |
+                  <li className="nav-item">
+                    <a onClick={handleLoginShow} href="#">
+                      Login
+                    </a>
+                  </li>
+                </>
+              ) : (
+                <li className="nav-item">
+                  <LogoutLink />
+                </li>
+              )}
             </ul>
             {/* <form className="d-flex" role="search">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
