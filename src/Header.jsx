@@ -36,7 +36,7 @@ export function Header() {
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            Some Trails
+            SomeTrails
           </a>
           <button
             className="navbar-toggler"
