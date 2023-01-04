@@ -7,6 +7,7 @@ import { TrailsShow } from "./TrailsShow";
 // Scheduled hikes
 import { HikesIndex } from "./HikeSchedulesIndex";
 import { HikesShow } from "./HikeSchedulesShow";
+import { HikesNew } from "./HikeSchedulesNew";
 
 export function Home() {
   // Trails show
@@ -52,9 +53,19 @@ export function Home() {
   };
   useEffect(handleIndexHikes, []);
 
+  // Scheduled hikes create
+  const handleCreateHike = (params, successCallback) => {
+    console.log("handleCreateHike", params);
+    axios.post("http://localhost:3000/hike_schedules.json", params).then((response) => {
+      setHikes([...hikes, response.data]);
+      successCallback();
+    });
+  };
+
   // HTML
   return (
     <div>
+      <HikesNew onCreateHike={handleCreateHike} />
       <Modal show={isHikesShowVisible} onClose={handleClose}>
         <HikesShow hike={currentHike} />
       </Modal>
