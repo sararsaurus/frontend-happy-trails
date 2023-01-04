@@ -1,15 +1,16 @@
 export function TrailsIndex(props) {
   return (
     <div>
-      <h1>All TRAILS (but not)</h1>
+      <h1>SOME TRAILS</h1>
       {props.trails.map((trail) => (
         <div key={trail.id}>
           <h2>{trail.name}</h2>
           <img src={trail.image_url} alt="trail photo" />
           <p>Description: {trail.description}</p>
-          <p>Length: {trail.length}</p>
+          <p>Miles: {trail.length}</p>
           <p>Difficulty: {trail.difficulty}</p>
-          {trail.conditions.map((condition) => (
+          <button onClick={() => props.onShowTrail(trail)}>More info</button>
+          {/* {trail.conditions.map((condition) => (
             <div key={condition.id}>
               <h3>Conditions:</h3>
               <p>Trail condition: {condition.trail_condition}</p>
@@ -19,8 +20,8 @@ export function TrailsIndex(props) {
               <p>Sunrise: {condition.sunrise_time}</p>
               <p>Sunset: {condition.sunset_time}</p>
             </div>
-          ))}
-          {trail.fast_facts.map((fast_fact) => (
+          ))} */}
+          {/* {trail.fast_facts.map((fast_fact) => (
             <div key={fast_fact.id}>
               <h3>Fast Facts:</h3>
               <p>General: {fast_fact.general} </p>
@@ -30,7 +31,7 @@ export function TrailsIndex(props) {
               <p>Ecological_zones: {fast_fact.ecological_zones} </p>
               <p>Trail_id: {fast_fact.trail_id} </p>
             </div>
-          ))}
+          ))} */}
         </div>
       ))}
     </div>
