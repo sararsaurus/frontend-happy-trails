@@ -1,4 +1,4 @@
-export function HikeSchedulesIndex(props) {
+export function HikesIndex(props) {
   return (
     <div id="hikes-index">
       <h1 className="text-center">Your Scheduled Hikes</h1>
