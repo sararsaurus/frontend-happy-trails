@@ -1,6 +1,16 @@
+import { HikesNew } from "./HikeSchedulesNew";
 export function TrailsShow(props) {
+  // Hike schedule new/create
+  const handleCreateHike = (params, successCallback) => {
+    console.log("handleCreateHike", params);
+    axios.post("http://localhost:3000/hike_schedules.json", params).then((response) => {
+      setHikes([...hikes, response.data]);
+      successCallback();
+    });
+  };
   return (
     <div>
+      <HikesNew onCreateHike={handleCreateHike} />
       <h1>Trail information</h1>
       <p>Name: {props.trail.name}</p>
       <p>Description: {props.trail.description}</p>

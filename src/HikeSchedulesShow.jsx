@@ -1,4 +1,14 @@
 export function HikesShow(props) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const params = new FormData(event.target);
+    props.onUpdateHike(props.hike.id, params, () => event.target.reset());
+  };
+
+  const handleClick = () => {
+    props.onDestroyHike(props.hike);
+  };
+
   return (
     <div>
       <h1>Hike</h1>
@@ -26,6 +36,17 @@ export function HikesShow(props) {
           <p>TESTING Trail_id: {fast_fact.trail_id} </p>
         </div>
       ))}
+
+      <form onSubmit={handleSubmit}>
+        <div>
+          Trail ID: <input defaultValue={props.hike.trail_id} name="trail_id" type="text" />
+        </div>
+        <div>
+          Date: <input defaultValue={props.hike.date} name="date" type="date" />
+        </div>
+        <button type="submit">Update hike</button>
+      </form>
+      <button onClick={handleClick}>Remove hike</button>
     </div>
   );
 }

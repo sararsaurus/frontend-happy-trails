@@ -57,10 +57,6 @@ export function Header() {
               <li className="nav-item">
                 <LogoutLink />
               </li>
-              |
-              {/* <li className="nav-item">
-                <HikeSchedulesIndex hikes={hikes} />
-              </li> */}
             </ul>
             {/* <form className="d-flex" role="search">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

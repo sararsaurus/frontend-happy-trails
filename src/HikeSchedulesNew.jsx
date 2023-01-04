@@ -7,7 +7,7 @@ export function HikesNew(props) {
 
   return (
     <div>
-      <h1>Schedule a hike</h1>
+      <h1>Take a hike!</h1>
       <form onSubmit={handleSubmit}>
         <div>
           Trail ID: <input name="trail_id" type="text" />
@@ -20,3 +20,4 @@ export function HikesNew(props) {
     </div>
   );
 }
+// defaultValue={props.trail.id}

@@ -7,7 +7,7 @@ import { TrailsShow } from "./TrailsShow";
 // Scheduled hikes
 import { HikesIndex } from "./HikeSchedulesIndex";
 import { HikesShow } from "./HikeSchedulesShow";
-import { HikesNew } from "./HikeSchedulesNew";
+// import { HikesNew } from "./HikeSchedulesNew";
 
 export function Home() {
   // Trails show
@@ -53,21 +53,39 @@ export function Home() {
   };
   useEffect(handleIndexHikes, []);
 
-  // Scheduled hikes create
-  const handleCreateHike = (params, successCallback) => {
-    console.log("handleCreateHike", params);
-    axios.post("http://localhost:3000/hike_schedules.json", params).then((response) => {
-      setHikes([...hikes, response.data]);
+  // Scheduled hikes edit/update
+  const handleUpdateHike = (id, params, successCallback) => {
+    console.log("handleUpdateHike", params);
+    axios.patch(`http://localhost:3000/hike_schedules/${id}.json`, params).then((response) => {
+      setHikes(
+        hikes.map((hike) => {
+          if (hike.id === response.data.id) {
+            return response.data;
+          } else {
+            return hike;
+          }
+        })
+      );
       successCallback();
+      handleClose();
+    });
+  };
+
+  // Scheduled hikes destroy
+  const handleDestroyHike = (hike) => {
+    console.log("handleDestroyHike", hike);
+    axios.delete(`http://localhost:3000/hike_schedules/${hike.id}.json`).then((response) => {
+      setHikes(hikes.filter((h) => h.id !== hike.id));
+      handleClose();
     });
   };
 
   // HTML
   return (
     <div>
-      <HikesNew onCreateHike={handleCreateHike} />
+      {/* <HikesNew onCreateHike={handleCreateHike} /> */}
       <Modal show={isHikesShowVisible} onClose={handleClose}>
-        <HikesShow hike={currentHike} />
+        <HikesShow hike={currentHike} onUpdateHike={handleUpdateHike} onDestroyHike={handleDestroyHike} />
       </Modal>
       <HikesIndex hikes={hikes} onShowHike={handleShowHike} />
 

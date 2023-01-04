@@ -13,9 +13,6 @@ export function HikesIndex(props) {
         ))}
       </div>
       <br />
-      <br />
-      <br />
-      <br />
     </div>
   );
 }
