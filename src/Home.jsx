@@ -83,7 +83,6 @@ export function Home() {
   // HTML
   return (
     <div>
-      {/* <HikesNew onCreateHike={handleCreateHike} /> */}
       <Modal show={isHikesShowVisible} onClose={handleClose}>
         <HikesShow hike={currentHike} onUpdateHike={handleUpdateHike} onDestroyHike={handleDestroyHike} />
       </Modal>
