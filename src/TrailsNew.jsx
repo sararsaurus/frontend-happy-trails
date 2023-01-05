@@ -29,16 +29,3 @@ export function TrailsNew(props) {
     </div>
   );
 }
-
-// ADD TO HOME IF YOU DECIDE TO MAKE AN ADMIN PORTAL CREATE TRAIL
-// const handleCreateTrail = (params, successCallback) => {
-//   console.log("handleCreateTrail", params);
-//   axios.post("http://localhost:3000/trails.json", params).then((response) => {
-//     setTrails([...trails, response.data]);
-//     successCallback();
-//   });
-// };
-{
-  /* <TrailsNew onCreateTrail={handleCreateTrail} /> */
-  // import { TrailsNew } from "./TrailsNew";
-}

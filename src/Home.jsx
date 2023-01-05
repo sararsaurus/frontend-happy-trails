@@ -4,22 +4,17 @@ import { Modal } from "./Modal";
 // Trails
 import { TrailsIndex } from "./TrailsIndex";
 import { TrailsShow } from "./TrailsShow";
+import { TrailsNew } from "./TrailsNew";
 // Scheduled hikes
 import { HikesIndex } from "./HikeSchedulesIndex";
 import { HikesShow } from "./HikeSchedulesShow";
-// import { HikesNew } from "./HikeSchedulesNew";
 
 export function Home() {
-  // Trails show
+  // Trails show ///
   const [trails, setTrails] = useState([]);
   const [isTrailsShowVisible, setIsTrailsShowVisible] = useState(false);
   const [currentTrail, setCurrentTrail] = useState({});
-  // Scheduled hikes show
-  const [hikes, setHikes] = useState([]);
-  const [isHikesShowVisible, setIsHikesShowVisible] = useState(false);
-  const [currentHike, setCurrentHike] = useState({});
 
-  // Trails show
   const handleIndexTrails = () => {
     axios.get("http://localhost:3000/trails.json").then((response) => {
       console.log(response.data);
@@ -38,7 +33,20 @@ export function Home() {
   };
   useEffect(handleIndexTrails, []);
 
-  // Scheduled hikes show
+  // Trails create
+  const handleCreateTrail = (params, successCallback) => {
+    console.log("handleCreateTrail", params);
+    axios.post("http://localhost:3000/trails.json", params).then((response) => {
+      setTrails([...trails, response.data]);
+      successCallback();
+    });
+  };
+
+  /// Scheduled hikes show ///
+  const [hikes, setHikes] = useState([]);
+  const [isHikesShowVisible, setIsHikesShowVisible] = useState(false);
+  const [currentHike, setCurrentHike] = useState({});
+
   const handleIndexHikes = () => {
     console.log("handleIndexHikes");
     axios.get("http://localhost:3000/hike_schedules.json").then((response) => {
@@ -83,6 +91,7 @@ export function Home() {
   // HTML
   return (
     <div>
+      <TrailsNew onCreateTrail={handleCreateTrail} />
       <Modal show={isHikesShowVisible} onClose={handleClose}>
         <HikesShow hike={currentHike} onUpdateHike={handleUpdateHike} onDestroyHike={handleDestroyHike} />
       </Modal>
