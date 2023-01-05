@@ -11,3 +11,7 @@ html {
 #footer {
   color: rgb(239, 226, 226);
 }
+
+#make-invisible {
+  opacity: .25;
+}

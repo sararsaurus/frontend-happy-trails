@@ -4,7 +4,7 @@ import { Modal } from "./Modal";
 // Trails
 import { TrailsIndex } from "./TrailsIndex";
 import { TrailsShow } from "./TrailsShow";
-// import { TrailsNew } from "./TrailsNew";
+import { TrailsNew } from "./TrailsNew";
 // Scheduled hikes
 import { HikesIndex } from "./HikeSchedulesIndex";
 import { HikesShow } from "./HikeSchedulesShow";
@@ -99,16 +99,18 @@ export function Home() {
   // HTML
   return (
     <div>
-      {/* <TrailsNew onCreateTrail={handleCreateTrail} /> */}
+      <TrailsNew onCreateTrail={handleCreateTrail} />
 
       <Modal show={isHikesShowVisible} onClose={handleClose}>
         <HikesShow hike={currentHike} onUpdateHike={handleUpdateHike} onDestroyHike={handleDestroyHike} />
       </Modal>
 
       <HikesIndex hikes={hikes} onShowHike={handleShowHike} />
+
       <Modal show={isTrailsShowVisible} onClose={handleClose}>
         <TrailsShow onCreateHike={handleCreateHike} trail={currentTrail} />
       </Modal>
+
       <TrailsIndex trails={trails} onShowTrail={handleShowTrail} />
     </div>
   );

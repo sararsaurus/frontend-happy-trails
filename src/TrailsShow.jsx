@@ -13,14 +13,15 @@ export function TrailsShow(props) {
         <div>
           <h1>Take a hike!</h1>
           <form onSubmit={handleSubmit}>
-            <div>
-              <input defaultValue={props.trail.id} name="trail_id" />
+            <div id="make-invisible">
+              Trail: <input defaultValue={props.trail.id} name="trail_id" />
             </div>
             <div>
               Date: <input name="date" type="date" />
             </div>
             <button type="submit">Schedule!</button>
           </form>
+          <br />
         </div>
         <h1>Trail information</h1>
         <p>Name: {props.trail.name}</p>
