@@ -1,21 +1,39 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-import { HikesNew } from "./HikeSchedulesNew";
+// import axios from "axios";
+// import { useState } from "react";
+// import { HikesNew } from "./HikeSchedulesNew";
 export function TrailsShow(props) {
   // Hike schedule new/create
+  // const [hikes, setHikes] = useState([]);
 
-  const [hikes, setHikes] = useState([]);
+  // const handleCreateHike = (params) => {
+  //   console.log("handleCreateHike", params);
+  //   axios.post("http://localhost:3000/hike_schedules.json", params).then((response) => {
+  //     setHikes([...hikes, response.data]);
+  //   });
+  // };
 
-  const handleCreateHike = (params, successCallback) => {
-    console.log("handleCreateHike", params);
-    axios.post("http://localhost:3000/hike_schedules.json", params).then((response) => {
-      setHikes([...hikes, response.data]);
-      successCallback();
-    });
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const params = new FormData(event.target);
+    props.onCreateHike(params);
+    event.target.reset();
   };
+
   return (
     <div>
-      <HikesNew onCreateHike={handleCreateHike} />
+      <div>
+        <h1>Take a hike!</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <input defaultValue={props.trail.id} name="trail_id" />
+          </div>
+          <div>
+            Date: <input name="date" type="date" />
+          </div>
+          <button type="submit">Schedule!</button>
+        </form>
+      </div>
+
       <h1>Trail information</h1>
       <p>Name: {props.trail.name}</p>
       <p>Description: {props.trail.description}</p>

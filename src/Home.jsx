@@ -62,14 +62,13 @@ export function Home() {
   };
   useEffect(handleIndexHikes, []);
 
-  // Hike schedule new/create
-  // const handleCreateHike = (params, successCallback) => {
-  //   console.log("handleCreateHike", params);
-  //   axios.post("http://localhost:3000/hike_schedules.json", params).then((response) => {
-  //     setHikes([...hikes, response.data]);
-  //     successCallback();
-  //   });
-  // };
+  // Scheduled hikes new/create
+  const handleCreateHike = (params) => {
+    console.log("handleCreateHike", params);
+    axios.post("http://localhost:3000/hike_schedules.json", params).then((response) => {
+      setHikes([...hikes, response.data]);
+    });
+  };
 
   // Scheduled hikes edit/update
   const handleUpdateHike = (id, params, successCallback) => {
@@ -101,15 +100,16 @@ export function Home() {
   // HTML
   return (
     <div>
-      {/* <HikesNew onCreateHike={handleCreateHike} /> */}
       <TrailsNew onCreateTrail={handleCreateTrail} />
+
       <Modal show={isHikesShowVisible} onClose={handleClose}>
+        {/* <HikesNew onCreateHike={handleCreateHike} trail={currentTrail} /> */}
         <HikesShow hike={currentHike} onUpdateHike={handleUpdateHike} onDestroyHike={handleDestroyHike} />
       </Modal>
-      <HikesIndex hikes={hikes} onShowHike={handleShowHike} />
 
+      <HikesIndex hikes={hikes} onShowHike={handleShowHike} />
       <Modal show={isTrailsShowVisible} onClose={handleClose}>
-        <TrailsShow trail={currentTrail} />
+        <TrailsShow onCreateHike={handleCreateHike} trail={currentTrail} />
       </Modal>
       <TrailsIndex trails={trails} onShowTrail={handleShowTrail} />
     </div>
