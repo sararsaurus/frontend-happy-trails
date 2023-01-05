@@ -6,8 +6,6 @@ if (jwt) {
   axios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
 }
 
-const admin = localStorage.getItem("admin");
-
 export function Login() {
   const [errors, setErrors] = useState([]);
 
