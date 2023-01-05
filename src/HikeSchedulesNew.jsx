@@ -5,19 +5,22 @@ export function HikesNew(props) {
     props.onCreateHike(params, () => event.target.reset());
   };
 
-  return (
-    <div>
-      <h1>Take a hike!</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Trail ID: <input name="trail_id" type="text" />
-        </div>
-        <div>
-          Date: <input name="date" type="date" />
-        </div>
-        <button type="submit">Schedule!</button>
-      </form>
-    </div>
-  );
+  const jwt = localStorage.getItem("jwt");
+  if (jwt) {
+    return (
+      <div>
+        <h1>Take a hike!</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            Trail ID: <input name="trail_id" type="text" />
+          </div>
+          <div>
+            Date: <input name="date" type="date" />
+          </div>
+          <button type="submit">Schedule!</button>
+        </form>
+      </div>
+    );
+  }
 }
 // defaultValue={props.trail.id}
