@@ -24,3 +24,4 @@ export function HikesNew(props) {
   }
 }
 // defaultValue={props.trail.id}
+// defaultValue=trail={currentTrail}

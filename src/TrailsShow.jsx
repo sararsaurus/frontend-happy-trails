@@ -1,6 +1,11 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
 import { HikesNew } from "./HikeSchedulesNew";
 export function TrailsShow(props) {
   // Hike schedule new/create
+
+  const [hikes, setHikes] = useState([]);
+
   const handleCreateHike = (params, successCallback) => {
     console.log("handleCreateHike", params);
     axios.post("http://localhost:3000/hike_schedules.json", params).then((response) => {
