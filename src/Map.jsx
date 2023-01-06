@@ -4,7 +4,7 @@ import mapboxgl from "mapbox-gl";
 // Grab the access token from your Mapbox account
 // I typically like to store sensitive things like this
 // in a .env file
-mapboxgl.accessToken = "TOKEN";
+mapboxgl.accessToken = `${process.env.REACT_APP_MAPBOX}`;
 
 export const Map = () => {
   const mapContainer = useRef();
