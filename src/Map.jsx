@@ -4,27 +4,22 @@ import mapboxgl from "mapbox-gl";
 // Grab the access token from your Mapbox account
 // I typically like to store sensitive things like this
 // in a .env file
-mapboxgl.accessToken = "pk.eyJ1Ijoic2FyYXJzYXVydXMiLCJhIjoiY2xiNDVuM2c5MDQ1YjNvbGoyN2RyeGM2aSJ9.34yW7dvW_g6Fgg-6KYod8A";
+mapboxgl.accessToken = "TOKEN";
 
 export const Map = () => {
   const mapContainer = useRef();
 
-  // South Arapaho: -105.64972, 40.019683
-  // Lone Eagle Peak: -105.660218, 40.071131
-  // Lake Isabelle: -105.6193149, 40.0689275
-  // Caribou Lake: -105.68272, 40.02078
+  const southArapaho = [-105.63751, 40.01713];
+  const loneEagle = [-105.660218, 40.071131];
+  const lakeIsabelle = [-105.6193149, 40.0689275];
+  const caribouLake = [-105.68425, 40.01607];
 
-  // this is where all of our map logic is going to live
-  // adding the empty dependency array ensures that the map
-  // is only created once
   useEffect(() => {
-    // create the map and configure it
-    // check out the API reference for more options
     // https://docs.mapbox.com/mapbox-gl-js/api/map/
     const map = new mapboxgl.Map({
       container: "map",
       style: "mapbox://styles/mapbox/satellite-streets-v11",
-      center: [-105.6377, 40.01717],
+      center: caribouLake,
       zoom: 14,
       pitch: 60,
       bearing: 270,
