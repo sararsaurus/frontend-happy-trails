@@ -4,10 +4,15 @@ import mapboxgl from "mapbox-gl";
 // Grab the access token from your Mapbox account
 // I typically like to store sensitive things like this
 // in a .env file
-mapboxgl.accessToken = "ADD TOKEN";
+mapboxgl.accessToken = "pk.eyJ1Ijoic2FyYXJzYXVydXMiLCJhIjoiY2xiNDVuM2c5MDQ1YjNvbGoyN2RyeGM2aSJ9.34yW7dvW_g6Fgg-6KYod8A";
 
 export const Map = () => {
   const mapContainer = useRef();
+
+  // South Arapaho: -105.64972, 40.019683
+  // Lone Eagle Peak: -105.660218, 40.071131
+  // Lake Isabelle: -105.6193149, 40.0689275
+  // Caribou Lake: -105.68272, 40.02078
 
   // this is where all of our map logic is going to live
   // adding the empty dependency array ensures that the map
