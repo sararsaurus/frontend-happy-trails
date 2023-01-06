@@ -8,7 +8,10 @@ import { TrailsNew } from "./TrailsNew";
 // Scheduled hikes
 import { HikesIndex } from "./HikeSchedulesIndex";
 import { HikesShow } from "./HikeSchedulesShow";
-import { Map } from "./Map";
+// MAP
+// import { Map } from "./Map";
+import React, { useRef } from "react";
+import mapboxgl from "mapbox-gl";
 
 export function Home() {
   // Trails show ///
@@ -97,6 +100,51 @@ export function Home() {
     });
   };
 
+  // MAP
+  mapboxgl.accessToken = "TOKEN";
+
+  const mapContainer = useRef();
+
+  // const southArapaho = [-105.63751, 40.01713];
+  // const loneEagle = [-105.660218, 40.071131];
+  // const lakeIsabelle = [-105.6193149, 40.0689275];
+  // const caribouLake = [-105.68425, 40.01607];
+
+  // let place = [];
+
+  // const handleClick = () => {
+  //   let center = [-105.63751, 40.01713];
+  // };
+
+  useEffect(() => {
+    const map = new mapboxgl.Map({
+      container: "map",
+      style: "mapbox://styles/mapbox/satellite-streets-v11",
+      center: [-105.68425, 40.01607],
+      zoom: 14,
+      pitch: 60,
+      bearing: 270,
+    });
+    map.on("load", () => {
+      map.addSource("mapbox-dem", {
+        type: "raster-dem",
+        url: "mapbox://mapbox.mapbox-terrain-dem-v1",
+        tileSize: 512,
+        maxZoom: 16,
+      });
+      map.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 });
+      map.addLayer({
+        id: "sky",
+        type: "sky",
+        paint: {
+          "sky-type": "atmosphere",
+          "sky-atmosphere-sun": [0.0, 90.0],
+          "sky-atmosphere-sun-intensity": 15,
+        },
+      });
+    });
+  }, []);
+
   // HTML
   return (
     <div>
@@ -106,7 +154,16 @@ export function Home() {
         <HikesShow hike={currentHike} onUpdateHike={handleUpdateHike} onDestroyHike={handleDestroyHike} />
       </Modal>
 
-      <Map />
+      <div id="map" ref={mapContainer} style={{ width: "100%", height: "50vh" }}>
+        {" "}
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <button type="button">South Arapaho Peak</button>
+        <button type="button">Crater Lake/Lone Eagle</button>
+        <button>Lake Isabelle</button>
+        <button>Caribou Lake</button>
+      </div>
 
       <HikesIndex hikes={hikes} onShowHike={handleShowHike} />
 
