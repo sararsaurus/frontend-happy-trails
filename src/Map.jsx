@@ -4,7 +4,7 @@ import mapboxgl from "mapbox-gl";
 // Grab the access token from your Mapbox account
 // I typically like to store sensitive things like this
 // in a .env file
-mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+mapboxgl.accessToken = "ADD TOKEN";
 
 export const Map = () => {
   const mapContainer = useRef();
@@ -19,10 +19,34 @@ export const Map = () => {
     const map = new mapboxgl.Map({
       container: "map",
       style: "mapbox://styles/mapbox/satellite-streets-v11",
-      center: [-119.99959421984575, 38.619551620333496],
+      center: [-105.6377, 40.01717],
       zoom: 14,
+      pitch: 60,
+      bearing: 270,
+    });
+    map.on("load", () => {
+      map.addSource("mapbox-dem", {
+        type: "raster-dem",
+        url: "mapbox://mapbox.mapbox-terrain-dem-v1",
+        tileSize: 512,
+        maxZoom: 16,
+      });
+      map.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 });
+      map.addLayer({
+        id: "sky",
+        type: "sky",
+        paint: {
+          "sky-type": "atmosphere",
+          "sky-atmosphere-sun": [0.0, 90.0],
+          "sky-atmosphere-sun-intensity": 15,
+        },
+      });
     });
   }, []);
 
-  return <div id="map" ref={mapContainer} style={{ width: "100%", height: "100vh" }} />;
+  return (
+    <div id="map" ref={mapContainer} style={{ width: "100%", height: "50vh" }}>
+      {" "}
+    </div>
+  );
 };

@@ -8,6 +8,7 @@ import { TrailsNew } from "./TrailsNew";
 // Scheduled hikes
 import { HikesIndex } from "./HikeSchedulesIndex";
 import { HikesShow } from "./HikeSchedulesShow";
+import { Map } from "./Map";
 
 export function Home() {
   // Trails show ///
@@ -104,6 +105,8 @@ export function Home() {
       <Modal show={isHikesShowVisible} onClose={handleClose}>
         <HikesShow hike={currentHike} onUpdateHike={handleUpdateHike} onDestroyHike={handleDestroyHike} />
       </Modal>
+
+      <Map />
 
       <HikesIndex hikes={hikes} onShowHike={handleShowHike} />
 
