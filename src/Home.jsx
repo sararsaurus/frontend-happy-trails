@@ -14,6 +14,8 @@ import React, { useRef } from "react";
 import mapboxgl from "mapbox-gl";
 // Weather API
 import { ForecastsIndex } from "./ForecastsIndex";
+// Daylight API
+import { LightsIndex } from "./LightsIndex";
 
 export function Home() {
   // Trails show ///
@@ -128,6 +130,20 @@ export function Home() {
 
   useEffect(handleIndexForecasts, []);
 
+  // Light API
+
+  const [lights, setLights] = useState([]);
+
+  const handleIndexLights = () => {
+    console.log("handleIndexLights");
+    axios.get("http://localhost:3000/lights.json").then((response) => {
+      console.log(response.data);
+      setLights(response.data);
+    });
+  };
+
+  useEffect(handleIndexLights, []);
+
   // HTML
   return (
     <div>
@@ -148,6 +164,7 @@ export function Home() {
       <TrailsIndex trails={trails} onShowTrail={handleShowTrail} />
 
       {/* <Modal show={isForecastsShowVisible} onClose={handleCloseForecast}></Modal> */}
+      <LightsIndex lights={lights} />
       <ForecastsIndex forecasts={forecasts} />
     </div>
   );
