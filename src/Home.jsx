@@ -9,7 +9,7 @@ import { TrailsNew } from "./TrailsNew";
 import { HikesIndex } from "./HikeSchedulesIndex";
 import { HikesShow } from "./HikeSchedulesShow";
 // MAP
-// import { Map } from "./Map";
+import { Map } from "./Map";
 import React, { useRef } from "react";
 import mapboxgl from "mapbox-gl";
 // Weather API
@@ -102,53 +102,11 @@ export function Home() {
     });
   };
 
-  // MAP
-  mapboxgl.accessToken = "TOKEN";
-
-  const mapContainer = useRef();
-
-  // const southArapaho = [-105.63751, 40.01713];
-  // const loneEagle = [-105.660218, 40.071131];
-  // const lakeIsabelle = [-105.6193149, 40.0689275];
-  // const caribouLake = [-105.68425, 40.01607];
-
-  // let place = [];
-
-  // const handleClick = () => {
-  //   let center = [-105.63751, 40.01713];
-  // };
-
-  useEffect(() => {
-    const map = new mapboxgl.Map({
-      container: "map",
-      style: "mapbox://styles/mapbox/satellite-streets-v11",
-      center: [-105.68425, 40.01607],
-      zoom: 14,
-      pitch: 60,
-      bearing: 270,
-    });
-    map.on("load", () => {
-      map.addSource("mapbox-dem", {
-        type: "raster-dem",
-        url: "mapbox://mapbox.mapbox-terrain-dem-v1",
-        tileSize: 512,
-        maxZoom: 16,
-      });
-      map.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 });
-      map.addLayer({
-        id: "sky",
-        type: "sky",
-        paint: {
-          "sky-type": "atmosphere",
-          "sky-atmosphere-sun": [0.0, 90.0],
-          "sky-atmosphere-sun-intensity": 15,
-        },
-      });
-    });
-  }, []);
-
   // WEATHER API FORECAST
   const [forecasts, setForecasts] = useState([]);
+  // const [isForecastsShowVisible, setIsForecastsShowVisible] = useState(false);
+  // const [currentForecast, setCurrentForecast] = useState({});
+
   const handleIndexForecasts = () => {
     console.log("handleIndexForecasts");
     axios.get("http://localhost:3000/forecasts.json").then((response) => {
@@ -156,6 +114,18 @@ export function Home() {
       setForecasts(response.data);
     });
   };
+
+  // const handleShowForecast = (forecast) => {
+  //   console.log("handleShowForecast", forecast);
+  //   setIsForecastsShowVisible(true);
+  //   // setCurrentForecast(forecast);
+  // };
+
+  // const handleCloseForecast = () => {
+  //   console.log("handleCloseForecast");
+  //   setIsForecastsShowVisible(false);
+  // };
+
   useEffect(handleIndexForecasts, []);
 
   // HTML
@@ -167,16 +137,7 @@ export function Home() {
         <HikesShow hike={currentHike} onUpdateHike={handleUpdateHike} onDestroyHike={handleDestroyHike} />
       </Modal>
 
-      <div id="map" ref={mapContainer} style={{ width: "100%", height: "50vh" }}>
-        {" "}
-      </div>
-
-      <div class="d-flex justify-content-center">
-        <button type="button">South Arapaho Peak</button>
-        <button type="button">Crater Lake/Lone Eagle</button>
-        <button>Lake Isabelle</button>
-        <button>Caribou Lake</button>
-      </div>
+      {/* <Map /> */}
 
       <HikesIndex hikes={hikes} onShowHike={handleShowHike} />
 
@@ -186,6 +147,7 @@ export function Home() {
 
       <TrailsIndex trails={trails} onShowTrail={handleShowTrail} />
 
+      {/* <Modal show={isForecastsShowVisible} onClose={handleCloseForecast}></Modal> */}
       <ForecastsIndex forecasts={forecasts} />
     </div>
   );
