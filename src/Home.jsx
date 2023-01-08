@@ -12,6 +12,8 @@ import { HikesShow } from "./HikeSchedulesShow";
 // import { Map } from "./Map";
 import React, { useRef } from "react";
 import mapboxgl from "mapbox-gl";
+// Weather API
+import { ForecastsIndex } from "./ForecastsIndex";
 
 export function Home() {
   // Trails show ///
@@ -145,6 +147,17 @@ export function Home() {
     });
   }, []);
 
+  // WEATHER API FORECAST
+  const [forecasts, setForecasts] = useState([]);
+  const handleIndexForecasts = () => {
+    console.log("handleIndexForecasts");
+    axios.get("http://localhost:3000/forecasts.json").then((response) => {
+      console.log(response.data);
+      setForecasts(response.data);
+    });
+  };
+  useEffect(handleIndexForecasts, []);
+
   // HTML
   return (
     <div>
@@ -172,6 +185,8 @@ export function Home() {
       </Modal>
 
       <TrailsIndex trails={trails} onShowTrail={handleShowTrail} />
+
+      <ForecastsIndex forecasts={forecasts} />
     </div>
   );
 }

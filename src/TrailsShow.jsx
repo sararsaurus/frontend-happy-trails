@@ -1,3 +1,5 @@
+// import { ForecastsIndex } from "./ForecastsIndex";
+
 export function TrailsShow(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,6 +30,7 @@ export function TrailsShow(props) {
         <p>Description: {props.trail.description}</p>
         <p>Miles: {props.trail.length}</p>
         <p>Difficulty: {props.trail.difficulty}</p>
+        {/* <ForecastsIndex /> */}
         {props.trail.conditions.map((condition) => (
           <div key={condition.id}>
             <h3>Conditions:</h3>
