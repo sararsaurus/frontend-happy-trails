@@ -18,11 +18,11 @@ export function HikesShow(props) {
         <div key={condition.id}>
           <h3>Conditions:</h3>
           <p>Trail condition: {condition.trail_condition}</p>
-          <p>Temp: {condition.temp}</p>
-          <p>Forecast: {condition.forecast}</p>
+          {/* <p>Temp: {condition.temp}</p>
+          <p>Forecast: {condition.forecast}</p> */}
           <p>TESTING Trail_id: {condition.trail_id}</p>
-          <p>Sunrise: {condition.sunrise_time}</p>
-          <p>Sunset: {condition.sunset_time}</p>
+          {/* <p>Sunrise: {condition.sunrise_time}</p>
+          <p>Sunset: {condition.sunset_time}</p> */}
         </div>
       ))}
       {props.hike.fast_facts.map((fast_fact) => (
