@@ -58,7 +58,7 @@ export function HikesShow(props) {
         </div>
       ))}
       <LightsIndex lights={lights} />
-      {/* <TodaysWeatherIndex weathers={weathers} /> */}
+      <TodaysWeatherIndex weathers={weathers} />
 
       {props.hike.fast_facts.map((fast_fact) => (
         <div key={fast_fact.id}>
