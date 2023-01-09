@@ -142,6 +142,8 @@ export function Home() {
         <TrailsShow onCreateHike={handleCreateHike} trail={currentTrail} />
       </Modal>
       <TrailsIndex trails={trails} onShowTrail={handleShowTrail} />
+      <br />
+      <br />
       <ForecastsIndex forecasts={forecasts} />
     </div>
   );

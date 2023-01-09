@@ -19,3 +19,12 @@ html {
 .map-container {
   height: 400px;
 }
+
+#forecast-index {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #413ba9;
+  padding: 10px;
+  background-color: aliceblue;
+  
+}
