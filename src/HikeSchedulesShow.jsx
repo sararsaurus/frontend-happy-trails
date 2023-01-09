@@ -1,3 +1,11 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+// Daylight API
+import { LightsIndex } from "./LightsIndex";
+// Weather API - today/tonight
+import { TodaysWeatherIndex } from "./TodaysWeatherIndex";
+
+// HIKES
 export function HikesShow(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -9,6 +17,33 @@ export function HikesShow(props) {
     props.onDestroyHike(props.hike);
   };
 
+  // Light API
+
+  const [lights, setLights] = useState([]);
+
+  const handleIndexLights = () => {
+    console.log("handleIndexLights");
+    axios.get("http://localhost:3000/lights.json").then((response) => {
+      console.log(response.data);
+      setLights(response.data);
+    });
+  };
+
+  useEffect(handleIndexLights, []);
+
+  // TODAY/TONIGHT FORECAST
+  const [weathers, setWeathers] = useState([]);
+
+  const handleIndexWeathers = () => {
+    console.log("handleIndexWeathers");
+    axios.get("http://localhost:3000/forecasts.json").then((response) => {
+      console.log(response.data);
+      setWeathers(response.data);
+    });
+  };
+
+  useEffect(handleIndexWeathers, []);
+
   return (
     <div>
       <h1>Hike</h1>
@@ -18,13 +53,13 @@ export function HikesShow(props) {
         <div key={condition.id}>
           <h3>Conditions:</h3>
           <p>Trail condition: {condition.trail_condition}</p>
-          {/* <p>Temp: {condition.temp}</p>
-          <p>Forecast: {condition.forecast}</p> */}
+
           <p>TESTING Trail_id: {condition.trail_id}</p>
-          {/* <p>Sunrise: {condition.sunrise_time}</p>
-          <p>Sunset: {condition.sunset_time}</p> */}
         </div>
       ))}
+      <LightsIndex lights={lights} />
+      {/* <TodaysWeatherIndex weathers={weathers} /> */}
+
       {props.hike.fast_facts.map((fast_fact) => (
         <div key={fast_fact.id}>
           <h3>Fast Facts:</h3>

@@ -6,10 +6,9 @@ export function LightsIndex(props) {
 
   return (
     <div>
-      <h1>Daylight Info</h1>
       <p>Sunrise: {sunrise}</p>
-      <p>Sunset: {sunset}</p>
       <p>First light: {first_light}</p>
+      <p>Sunset: {sunset}</p>
       <p>Last light: {last_light}</p>
     </div>
   );
