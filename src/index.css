@@ -15,3 +15,7 @@ html {
 #make-invisible {
   opacity: .25;
 }
+
+.map-container {
+  height: 400px;
+}

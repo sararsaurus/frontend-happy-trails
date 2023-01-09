@@ -5,18 +5,17 @@ mapboxgl.accessToken = "TOKEN";
 
 export const Map = () => {
   const mapContainer = useRef();
-
   const southArapaho = [-105.63751, 40.01713];
   const loneEagle = [-105.660218, 40.071131];
   const lakeIsabelle = [-105.6193149, 40.0689275];
   const caribouLake = [-105.68425, 40.01607];
+  const center = caribouLake;
 
   useEffect(() => {
-    // https://docs.mapbox.com/mapbox-gl-js/api/map/
     const map = new mapboxgl.Map({
       container: "map",
       style: "mapbox://styles/mapbox/satellite-streets-v11",
-      center: caribouLake,
+      center: center,
       zoom: 14,
       pitch: 60,
       bearing: 270,
@@ -38,6 +37,61 @@ export const Map = () => {
           "sky-atmosphere-sun-intensity": 15,
         },
       });
+      map.addSource("points", {
+        type: "geojson",
+        data: {
+          type: "FeatureCollection",
+          features: [
+            {
+              type: "Feature",
+              properties: {},
+              geometry: {
+                type: "Point",
+                coordinates: southArapaho,
+              },
+            },
+            {
+              type: "Feature",
+              properties: {},
+              geometry: {
+                type: "Point",
+                coordinates: caribouLake,
+              },
+            },
+            {
+              type: "Feature",
+              properties: {},
+              geometry: {
+                type: "Point",
+                coordinates: lakeIsabelle,
+              },
+            },
+          ],
+        },
+      });
+      // Add a circle layer
+      map.addLayer({
+        id: "circle",
+        type: "circle",
+        source: "points",
+        paint: {
+          "circle-color": "#4264fb",
+          "circle-radius": 8,
+          "circle-stroke-width": 2,
+          "circle-stroke-color": "#ffffff",
+        },
+      });
+      map.on("click", "circle", (e) => {
+        map.flyTo({
+          center: e.features[0].geometry.coordinates,
+        });
+      });
+      map.on("mouseenter", "circle", () => {
+        map.getCanvas().style.cursor = "pointer";
+      });
+      map.on("mouseleave", "circle", () => {
+        map.getCanvas().style.cursor = "";
+      });
     });
   }, []);
 
@@ -47,12 +101,3 @@ export const Map = () => {
     </div>
   );
 };
-
-{
-  /* <div class="d-flex justify-content-center">
-        <button type="button">South Arapaho Peak</button>
-        <button type="button">Crater Lake/Lone Eagle</button>
-        <button>Lake Isabelle</button>
-        <button>Caribou Lake</button>
-      </div> */
-}
