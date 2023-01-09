@@ -9,15 +9,14 @@ export const Map = () => {
   const loneEagle = [-105.660218, 40.071131];
   const lakeIsabelle = [-105.6193149, 40.0689275];
   const caribouLake = [-105.68425, 40.01607];
-  const center = caribouLake;
 
   useEffect(() => {
     const map = new mapboxgl.Map({
       container: "map",
       style: "mapbox://styles/mapbox/satellite-streets-v11",
-      center: center,
-      zoom: 14,
-      pitch: 60,
+      center: [-105.56153, 40.03224],
+      zoom: 11,
+      pitch: 63,
       bearing: 270,
     });
     map.on("load", () => {
@@ -66,6 +65,14 @@ export const Map = () => {
                 coordinates: lakeIsabelle,
               },
             },
+            {
+              type: "Feature",
+              properties: {},
+              geometry: {
+                type: "Point",
+                coordinates: loneEagle,
+              },
+            },
           ],
         },
       });
@@ -92,6 +99,8 @@ export const Map = () => {
       map.on("mouseleave", "circle", () => {
         map.getCanvas().style.cursor = "";
       });
+      // Add zoom and rotation controls to the map.
+      map.addControl(new mapboxgl.NavigationControl());
     });
   }, []);
 
