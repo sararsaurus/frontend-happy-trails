@@ -5,7 +5,7 @@ export function TodaysWeatherIndex(props) {
     <div>
       {firstTwoForecasts.map((weather) => (
         <div key={weather.number}>
-          <h2>{weather.name}</h2>
+          <h4>{weather.name}</h4>
           <p>{weather.detailedForecast}</p>
         </div>
       ))}

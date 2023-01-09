@@ -128,49 +128,6 @@ export function Home() {
 
   useEffect(handleIndexForecasts, []);
 
-  // MAP
-  // BUTTONS
-  // const southArapaho = [-105.63751, 40.01713];
-  // const loneEagle = [-105.660218, 40.071131];
-  // const lakeIsabelle = [-105.6193149, 40.0689275];
-  // const caribouLake = [-105.68425, 40.01607];
-  // // let coords = [southArapaho, loneEagle, lakeIsabelle, caribouLake];
-  // // let center = coords[Math.floor(Math.random() * coords.length)];
-
-  // mapboxgl.accessToken =
-  //   "pk.eyJ1Ijoic2FyYXJzYXVydXMiLCJhIjoiY2xja3YzamdzMHV1MDN3bW01eTdtangxaCJ9.2M9D5IUyyAOWKH4shxugBQ";
-
-  // const mapContainer = useRef();
-
-  // useEffect(() => {
-  //   const map = new mapboxgl.Map({
-  //     container: "map",
-  //     style: "mapbox://styles/mapbox/satellite-streets-v11",
-  //     center: caribouLake,
-  //     zoom: 14,
-  //     pitch: 60,
-  //     bearing: 270,
-  //   });
-  //   map.on("load", () => {
-  //     map.addSource("mapbox-dem", {
-  //       type: "raster-dem",
-  //       url: "mapbox://mapbox.mapbox-terrain-dem-v1",
-  //       tileSize: 512,
-  //       maxZoom: 16,
-  //     });
-  //     map.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 });
-  //     map.addLayer({
-  //       id: "sky",
-  //       type: "sky",
-  //       paint: {
-  //         "sky-type": "atmosphere",
-  //         "sky-atmosphere-sun": [0.0, 90.0],
-  //         "sky-atmosphere-sun-intensity": 15,
-  //       },
-  //     });
-  //   });
-  // }, []);
-
   // HTML
   return (
     <div>
@@ -178,10 +135,7 @@ export function Home() {
       <Modal show={isHikesShowVisible} onClose={handleClose}>
         <HikesShow hike={currentHike} onUpdateHike={handleUpdateHike} onDestroyHike={handleDestroyHike} />
       </Modal>
-      {/* <div id="map" ref={mapContainer} style={{ width: "100%", height: "50vh" }}>
-        {" "}
-      </div> */}
-      <Map />
+      {/* <Map /> */}
       ;
       <HikesIndex hikes={hikes} onShowHike={handleShowHike} />
       <Modal show={isTrailsShowVisible} onClose={handleClose}>
@@ -192,21 +146,3 @@ export function Home() {
     </div>
   );
 }
-
-// <button type="button" onClick={handleClick}>
-// Crater Lake/Lone Eagle
-// </button>
-// <button type="button" onClick={handleClick}>
-// Lake Isabelle
-// </button>
-// <button type="button" onClick={handleClick}>
-// Caribou Lake
-// </button>
-// const handleClickSouthArapaho = () => {
-//   map["center"] = southArapaho;
-// };
-// <div className="d-flex justify-content-center">
-//         <button type="button" onClick={handleClickSouthArapaho}>
-//           South Arapaho Peak
-//         </button>
-//       </div>
