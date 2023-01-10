@@ -21,7 +21,7 @@ html {
 }
 
 #forecast-index {
-  margin: auto;
+  margin: right;
   width: 60%;
   border: 3px solid #413ba9;
   padding: 10px;
