@@ -4,9 +4,7 @@ export function ForecastsIndex(props) {
       <h1>Weekly Forecast</h1>
       {props.forecasts.map((forecast) => (
         <div key={forecast.number}>
-          <h2>
-            <em>{forecast.name}</em>
-          </h2>
+          <h3>{forecast.name}</h3>
           <p>{forecast.detailedForecast}</p>
         </div>
       ))}

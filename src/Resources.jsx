@@ -68,6 +68,20 @@ export function Resources() {
               NWS Boulder
             </a>
           </div>
+          <br />
+          <div className="twitter-embed">
+            <a
+              className="twitter-timeline"
+              data-theme="dark"
+              data-tweet-limit="5"
+              data-width="350"
+              data-height="400"
+              data-chrome="noheader nofooter noborders"
+              href="https://twitter.com/OpenSnow?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+            >
+              OpenSnow
+            </a>
+          </div>
         </div>
       </section>
       <br />
