@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Modal } from "./Modal";
 import { Signup } from "./Signup";
 import { LogoutLink } from "./LogoutLink";
@@ -25,9 +26,10 @@ export function Header() {
     <header>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="/">
             SomeTrails
           </a>
+          <Link to="/resources">Resources </Link>|
           <button
             className="navbar-toggler"
             type="button"
