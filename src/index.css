@@ -20,10 +20,19 @@ html {
   height: 400px;
 }
 
+
+#resources {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 #forecast-index {
-  justify-content: right;
   width: 60%;
   border: 3px solid #413ba9;
   padding: 10px;
   background-color: aliceblue;
 }
+/* 
+#tweets {
+  align-self: flex-start;
+} */

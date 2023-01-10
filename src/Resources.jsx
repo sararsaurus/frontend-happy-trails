@@ -26,9 +26,8 @@ export function Resources() {
   }, []);
 
   return (
-    <div>
-      <h1>Resources</h1>
-      <section className="twitterContainer">
+    <div id="resources">
+      <section id="tweets" className="twitterContainer">
         <div className="twitter-embed">
           <a
             className="twitter-timeline"
