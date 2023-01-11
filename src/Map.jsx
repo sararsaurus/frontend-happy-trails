@@ -5,10 +5,10 @@ mapboxgl.accessToken = "TOKEN";
 
 export const Map = () => {
   const mapContainer = useRef();
-  const southArapaho = [-105.63751, 40.01713];
+  const southArapaho = [-105.6497, 40.02];
   const loneEagle = [-105.660218, 40.071131];
   const lakeIsabelle = [-105.6193149, 40.0689275];
-  const caribouLake = [-105.68425, 40.01607];
+  const caribouLake = [-105.68248, 40.02103];
 
   useEffect(() => {
     const map = new mapboxgl.Map({

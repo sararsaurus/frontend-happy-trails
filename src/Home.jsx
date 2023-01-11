@@ -107,7 +107,7 @@ export function Home() {
       <Modal show={isHikesShowVisible} onClose={handleClose}>
         <HikesShow hike={currentHike} onUpdateHike={handleUpdateHike} onDestroyHike={handleDestroyHike} />
       </Modal>
-      {/* <Map /> */}
+      <Map />
       <HikesIndex hikes={hikes} onShowHike={handleShowHike} />
       <Modal show={isTrailsShowVisible} onClose={handleClose}>
         <TrailsShow onCreateHike={handleCreateHike} trail={currentTrail} />
