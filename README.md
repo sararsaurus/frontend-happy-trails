@@ -3,10 +3,11 @@
 Welcome to the frontend for SomeTrails!
 
 SomeTrails is a one-stop prep shop for wilderness patrol volunteers. It automatically generates a printable page for your scheduled patrol that includes:
-:sunny: important daylight information
-:cloud_with_lightning_and_rain: today's and tonight's forecast
-:mountain: trail conditions
-:notebook: general facts about your selected area
+
+- :sunny: important daylight information
+- :cloud_with_lightning_and_rain: today's and tonight's forecast
+- :mountain: trail conditions
+- :notebook: general facts about your selected area
 
 ## Libraries
 
