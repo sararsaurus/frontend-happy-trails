@@ -1,4 +1,4 @@
-# <SomeTrails>
+# SomeTrails
 
 Welcome to the frontend for SomeTrails!
 
