@@ -46,7 +46,7 @@ export function HikesShow(props) {
 
   return (
     <div>
-      <h1>Hike</h1>
+      <h1>Happy Trails!</h1>
       <p>Date: {props.hike.date}</p>
       <p>Trail: {props.hike.trail_name}</p>
       {props.hike.conditions.map((condition) => (

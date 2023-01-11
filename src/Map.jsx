@@ -9,6 +9,8 @@ export const Map = () => {
   const loneEagle = [-105.660218, 40.071131];
   const lakeIsabelle = [-105.6193149, 40.0689275];
   const caribouLake = [-105.68248, 40.02103];
+  const Audubon = [-105.6164, 40.0989];
+  const stVrain = [-105.5873, 40.1616];
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -71,6 +73,22 @@ export const Map = () => {
               geometry: {
                 type: "Point",
                 coordinates: loneEagle,
+              },
+            },
+            {
+              type: "Feature",
+              properties: {},
+              geometry: {
+                type: "Point",
+                coordinates: Audubon,
+              },
+            },
+            {
+              type: "Feature",
+              properties: {},
+              geometry: {
+                type: "Point",
+                coordinates: stVrain,
               },
             },
           ],

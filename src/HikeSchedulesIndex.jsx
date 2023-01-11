@@ -3,7 +3,7 @@ export function HikesIndex(props) {
   if (jwt) {
     return (
       <div id="hikes-index">
-        <h1 className="text-center">Your Scheduled Hikes</h1>
+        <h1 className="text-center">Your Scheduled Patrols</h1>
         <br />
         <div className="row">
           {props.hikes.map((hike) => (
