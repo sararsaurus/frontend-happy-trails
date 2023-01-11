@@ -59,7 +59,6 @@ export function HikesShow(props) {
       ))}
       <LightsIndex lights={lights} />
       <TodaysWeatherIndex weathers={weathers} />
-
       {props.hike.fast_facts.map((fast_fact) => (
         <div key={fast_fact.id}>
           <h3>Fast Facts:</h3>
