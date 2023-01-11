@@ -1,4 +1,6 @@
-# SomeTrails
+# README
+
+# SomeTrails (frontend)
 
 Welcome to the frontend for SomeTrails!
 
@@ -13,11 +15,10 @@ It also allows users to sign up, log in, schedule and amend or delete patrols, v
 
 ## Libraries
 
-React (frontend),
-Rails (backend),
-Mapbox GL JS
+- React
+- [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/guides/)
 
-## Installation & usage
+## Installation & Usage
 
 This project is locally hosted, and the frontend pairs with [this backend](https://github.com/sararsaurus/backend-happy-trails-api), which you will need to get things working.
 
@@ -33,6 +34,6 @@ Then you can view the app on http://localhost:5173.
 
 ## Roadmap
 
-- Build out the admin-only section
+- Build out the admin-only section (e.g., add a calendar that displays all scheduled hikes)
 - Improve the UX with some simple frontend validations for signing up and logging in
-- Build interactivity between the Mapbox GL JS component and the rest of my app (e.g., allow a user to scroll over a trail and correspondingly zoom onto those coordinates)
+- Build interactivity between the Mapbox GL JS component and the rest of my app (e.g., allow a user to scroll over a trail and correspondingly zoom onto those coordinates
