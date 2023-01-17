@@ -13,24 +13,27 @@ SomeTrails is a one-stop prep shop for wilderness patrol volunteers. It automati
 
 It also allows users to sign up, log in, schedule and amend or delete patrols, view (only) their own scheduled patrols, view an interactive terrain map of the James Peak and Indian Peaks Wilderness areas, and check out a resource page with relevant embedded twitter feeds and a complete weekly forecast. Admins can further manipulate the available data.
 
-## Libraries
+This project is locally hosted, and the frontend pairs with [this backend](https://github.com/sararsaurus/backend-happy-trails-api).
 
-- React
-- [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/guides/)
+## Libraries & APIs
 
-## Installation & Usage
+- React 18.2.0
+- [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/guides/) \*\* Please note that you will need a token
 
-This project is locally hosted, and the frontend pairs with [this backend](https://github.com/sararsaurus/backend-happy-trails-api), which you will need to get things working.
-
-Once you've followed the backend instructions, clone this repo and run:
+## Installation
 
 ```bash
 npm install
+```
+
+## Usage
+
+```bash
 npm run dev
 ```
 
-Don't forget to get that backend code running on http://localhost:3000.
-Then you can view the app on http://localhost:5173.
+You'll need to have your own Mapbox token and [the backend code](https://github.com/sararsaurus/backend-happy-trails-api) running on http://localhost:3000.
+You can view the app on http://localhost:5173.
 
 ## Roadmap
 
