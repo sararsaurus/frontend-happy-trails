@@ -15,6 +15,8 @@ It also allows users to sign up, log in, schedule and amend or delete patrols, v
 
 This project is locally hosted, and the frontend pairs with [this backend](https://github.com/sararsaurus/backend-happy-trails-api).
 
+Click [here](https://youtu.be/5GF2niIeHfY) for a quick demo!
+
 ## Libraries & APIs
 
 - React 18.2.0
