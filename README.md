@@ -42,4 +42,4 @@ You can view the app on http://localhost:5173.
 
 - Build out the admin-only section (e.g., add a calendar that displays all scheduled hikes)
 - Improve the UX with some simple frontend validations for signing up and logging in
-- Build interactivity between the Mapbox GL JS component and the rest of my app (e.g., allow a user to scroll over a trail and correspondingly zoom onto those coordinates
+- Build interactivity between the Mapbox GL JS component and the rest of my app (e.g., allow a user to scroll over a trail and correspondingly zoom onto those coordinates)
