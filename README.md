@@ -17,8 +17,9 @@ This project is locally hosted, and the frontend pairs with [this backend](https
 
 Click [here](https://youtu.be/5GF2niIeHfY) for a quick demo!
 
-## Libraries & APIs
+## Libraries, APIs & code editor
 
+- Built using [Visual Studio Code](https://code.visualstudio.com/)
 - React 18.2.0
 - [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/guides/) \*\* Please note that you will need a token
 
