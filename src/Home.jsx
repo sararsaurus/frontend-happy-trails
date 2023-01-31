@@ -37,11 +37,6 @@ export function Home() {
   };
   useEffect(handleIndexTrails, []);
 
-  // Click on trail to change map
-  function handleClick() {
-    console.log("clicked!");
-  }
-
   // Trails create
   const handleCreateTrail = (params, successCallback) => {
     console.log("handleCreateTrail", params);
@@ -105,6 +100,11 @@ export function Home() {
     });
   };
 
+  // Buttons
+  const handleClick = () => {
+    console.log("clicked!");
+  };
+
   // map
   mapboxgl.accessToken = "TOKEN";
 
@@ -118,10 +118,6 @@ export function Home() {
     const stVrain = [-105.5873, 40.1616];
 
     const [center, setCenter] = useState({});
-
-    const handleClick = () => {
-      setCenter(southArapaho);
-    };
 
     useEffect(() => {
       const map = new mapboxgl.Map({
@@ -249,10 +245,18 @@ export function Home() {
       </Modal>
       <Map />
       <div class="d-flex justify-content-center">
-        <button type="button">South Arapaho Peak</button>
-        <button type="button">Crater Lake/Lone Eagle</button>
-        <button type="button">Lake Isabelle</button>
-        <button type="button">Caribou Lake</button>
+        <button type="button" onClick={handleClick}>
+          South Arapaho Peak
+        </button>
+        <button type="button" onClick={handleClick}>
+          Crater Lake/Lone Eagle
+        </button>
+        <button type="button" onClick={handleClick}>
+          Lake Isabelle
+        </button>
+        <button type="button" onClick={handleClick}>
+          Caribou Lake
+        </button>
       </div>
       <HikesIndex hikes={hikes} onShowHike={handleShowHike} />
       <Modal show={isTrailsShowVisible} onClose={handleClose}>
