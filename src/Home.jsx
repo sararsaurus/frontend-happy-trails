@@ -101,28 +101,37 @@ export function Home() {
   };
 
   // Buttons
+
+  // variables I'd like to eventually use
+  const southArapaho = [-105.6497, 40.02];
+  const loneEagle = [-105.660218, 40.071131];
+  const lakeIsabelle = [-105.6193149, 40.0689275];
+  const caribouLake = [-105.68248, 40.02103];
+  const Audubon = [-105.6164, 40.0989];
+  const stVrain = [-105.5873, 40.1616];
+  const defaultCoordinates = [-105.56153, 40.03224];
+
+  // I think I'll need to have useState remember what my button does, so setting that variable here:
+  const [coordinates, setCoordinates] = useState(null);
+
+  // Button mechanics
   const handleClick = () => {
     console.log("clicked!");
+    // Below currently doesn't do anything
+    setCoordinates(southArapaho);
   };
 
-  // map
+  // MAP!
   mapboxgl.accessToken = "TOKEN";
 
   const Map = () => {
     const mapContainer = useRef();
-    const southArapaho = [-105.6497, 40.02];
-    const loneEagle = [-105.660218, 40.071131];
-    const lakeIsabelle = [-105.6193149, 40.0689275];
-    const caribouLake = [-105.68248, 40.02103];
-    const Audubon = [-105.6164, 40.0989];
-    const stVrain = [-105.5873, 40.1616];
-
-    const [center, setCenter] = useState({});
 
     useEffect(() => {
       const map = new mapboxgl.Map({
         container: "map",
         style: "mapbox://styles/mapbox/satellite-streets-v11",
+        // "Center" below is what I'd like to toggle when you click a button. But I'll also need to have a way to present a default view when the user first visits the page. So this is the heart of what I'm trying to do - somehow set up my buttons to change the "center". (I started with independent buttons, rather than trying to make it so that you could click a trail name on the trail card because I wanted to keep it simple to get the functionality working first)
         center: [-105.56153, 40.03224],
         zoom: 11,
         pitch: 63,
