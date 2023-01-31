@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 
 mapboxgl.accessToken = "TOKEN";
@@ -11,6 +11,12 @@ export const Map = () => {
   const caribouLake = [-105.68248, 40.02103];
   const Audubon = [-105.6164, 40.0989];
   const stVrain = [-105.5873, 40.1616];
+
+  const [center, setCenter] = useState({});
+
+  const handleClick = () => {
+    setCenter(southArapaho);
+  };
 
   useEffect(() => {
     const map = new mapboxgl.Map({

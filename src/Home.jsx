@@ -37,6 +37,11 @@ export function Home() {
   };
   useEffect(handleIndexTrails, []);
 
+  // Click on trail to change map
+  function handleClick() {
+    console.log("clicked!");
+  }
+
   // Trails create
   const handleCreateTrail = (params, successCallback) => {
     console.log("handleCreateTrail", params);
@@ -100,6 +105,8 @@ export function Home() {
     });
   };
 
+  // button
+
   // HTML
   return (
     <div>
@@ -108,6 +115,12 @@ export function Home() {
         <HikesShow hike={currentHike} onUpdateHike={handleUpdateHike} onDestroyHike={handleDestroyHike} />
       </Modal>
       <Map />
+      <div class="d-flex justify-content-center">
+        <button type="button">South Arapaho Peak</button>
+        <button type="button">Crater Lake/Lone Eagle</button>
+        <button type="button">Lake Isabelle</button>
+        <button type="button">Caribou Lake</button>
+      </div>
       <HikesIndex hikes={hikes} onShowHike={handleShowHike} />
       <Modal show={isTrailsShowVisible} onClose={handleClose}>
         <TrailsShow onCreateHike={handleCreateHike} trail={currentTrail} />
