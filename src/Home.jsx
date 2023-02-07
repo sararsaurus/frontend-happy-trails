@@ -100,7 +100,7 @@ export function Home() {
     });
   };
 
-  // Buttons
+  // ***  Buttons *** //
 
   // variables I'd like to eventually use
   const southArapaho = [-105.6497, 40.02];
@@ -115,6 +115,7 @@ export function Home() {
   const [coordinates, setCoordinates] = useState(null);
 
   // Button mechanics
+
   const handleClick = () => {
     console.log("clicked!");
     // Below currently doesn't do anything
