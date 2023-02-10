@@ -11,13 +11,11 @@ SomeTrails is a one-stop prep shop for wilderness patrol volunteers. It automati
 - :mountain: trail conditions
 - :notebook: general facts about your selected area
 
-It also allows users to sign up, log in, schedule and amend or delete patrols, view (only) their own scheduled patrols, view an interactive terrain map of the James Peak and Indian Peaks Wilderness areas, and check out a resource page with relevant embedded twitter feeds and a complete weekly forecast. Admins can further manipulate the available data.
+It also allows users to sign up, log in, schedule and amend or delete patrols, view (only) their own scheduled patrols, view an interactive terrain map of the James Peak and Indian Peaks Wilderness areas, and check out a resource page with relevant embedded twitter feeds and a complete weekly forecast. Admins can further manipulate the available data. This project is locally hosted, and the frontend pairs with [this backend](https://github.com/sararsaurus/backend-happy-trails-api).
 
 ![](demo.gif)
 
-This project is locally hosted, and the frontend pairs with [this backend](https://github.com/sararsaurus/backend-happy-trails-api).
-
-Click [here](https://youtu.be/g7HeW_GGq2s) for a quick demo!
+Click [here](https://youtu.be/g7HeW_GGq2s) for a video demo.
 
 ## Libraries, APIs & code editor
 
